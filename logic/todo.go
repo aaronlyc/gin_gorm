@@ -14,7 +14,7 @@ func CreateTodo(c *gin.Context) {
 	completed, _ := strconv.Atoi(c.PostForm("completed"))
 	title := c.PostForm("title")
 	err := dao.DoCreateData(title, completed)
-	c.JSON(http.StatusCreated, gin.H{"status": http.StatusCreated, "message": "Todo item created successfully!", "resourceId": err})
+	c.JSON(http.StatusCreated, gin.H{"status": http.StatusCreated, "message": err, "data": true})
 }
 
 // fetchAllTodo 返回所有的 todo 数据
